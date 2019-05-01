@@ -16,23 +16,13 @@ int main(int argc, char *argv[])
 	arr = (int*)malloc(sizeof(int)*n);
 	for(int i = 0; i < n; i++)
 	{
-		scanf("%d", &arr[i]);
+		arr[i] = atoi(argv[i+2]);
 	}
 
 	pthread_t tid, tid1, tid2;
 	pthread_attr_t attr, attr1, attr2;
 	
-	if(argc != 2)
-	{
-		fprintf(stderr,"usage: a.out <number length>\n");
-     	return -1;
-	}
 
-	if (atoi(argv[1]) < 0)
-	{
-    	fprintf(stderr,"Argument %d must be non-negative\n",atoi(argv[1]));
-    	return -1;
-	}
 
 	/* get the default attributes */
 	pthread_attr_init(&attr);
